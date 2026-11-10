@@ -39,8 +39,9 @@ Objetivo: F1.1, comprobar el entorno y fijar versiones.
 Cambios verificados: instalado Temurin 25.0.5 LTS con winget (JAVA_HOME configurado); Docker Desktop arrancado y `docker run hello-world` correcto; extensiones de VS Code para Vue, Java y Spring Boot instaladas; versiones registradas en docs/herramientas.md y ADR-009.
 Comprobaciones y resultados: `git --version`, `node --version`, `npm --version`, `java -version`, `docker --version`, `docker compose version` y `gh auth status` correctos.
 Limitaciones o bloqueos: ninguno. Hay que abrir Docker Desktop antes de usar `docker`. Las terminales abiertas antes de instalar Java deben reiniciarse para ver `java`.
-Cambios sin commit: .gitignore (añade .omc/), docs/herramientas.md, docs/STATUS.md, docs/roadmap.md, docs/decisiones/README.md, CHANGELOG.md.
-Siguiente tarea: commit y PR de F1.1; después F1.2.
+Commits: fd94100 (F1.1) y normas de Git de Manuel en docs/git-workflow.md y AGENTS.md, ambos en la PR #1.
+Cambios sin commit: ninguno.
+Siguiente tarea: merge de la PR #1 desde la terminal con mensaje; después F1.2.
 Pendientes externos: validación con técnicos; elección posterior de hosting y licencia.
 
 ## Plantilla para siguientes sesiones
