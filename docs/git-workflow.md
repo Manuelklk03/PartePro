@@ -7,6 +7,7 @@ Una rama por bloque de trabajo y una PR hacia main. Excepción: el commit inicia
 - Todo Git y GitHub se hace desde la terminal (git y gh), incluidos la PR y el merge. No usar la web salvo para consultar.
 - PR grandes cuando se pueda: agrupar varias tareas relacionadas de la misma fase en una rama, con un commit por tarea o cambio comprensible.
 - El merge se hace con merge commit y un mensaje propio que explique qué incorpora: la PR y sus commits.
+- Tras el merge, borrar la rama (`--delete-branch`) solo si su trabajo está completo. Si la rama sigue abierta para más tareas, mantenerla.
 - Prohibidas las líneas `Co-Authored-By` de agentes de IA (Claude, Codex u otros) y cualquier firma automática como "Generated with" en commits, merges y PR.
 
 ## Secuencia habitual
