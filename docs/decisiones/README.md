@@ -12,12 +12,13 @@
 | ADR-006 | Sesión con cookie y CSRF | Mantener credenciales fuera del almacenamiento JavaScript |
 | ADR-007 | Presupuestos con revisiones inmutables | Relacionar cada respuesta con el contenido exacto enviado |
 | ADR-008 | Sin herramientas de IA dentro del producto por defecto | Las funciones iniciales no lo requieren |
+| ADR-009 | Java 25 LTS (Temurin), Spring Boot 4.1.2 y Node 24 (2026-11-10, aceptada) | Versiones LTS/estables y compatibles según la documentación oficial; detalle en docs/herramientas.md |
 
-Son decisiones del diseño inicial, no implementaciones verificadas.
+Las decisiones ADR-001 a ADR-008 son del diseño inicial, no implementaciones verificadas.
 
 ## Pendientes
 
-Versiones exactas; publicación; almacenamiento de adjuntos; caducidad de enlaces;
+Versiones de dependencias de frontend y PostgreSQL; publicación; almacenamiento de adjuntos; caducidad de enlaces;
 retención offline; estrategia de sesión en varios procesos; librería de PDF;
 formato Java; licencia.
 
