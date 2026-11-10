@@ -1,0 +1,26 @@
+# Dependencias y compilación
+node_modules/
+dist/
+target/
+coverage/
+playwright-report/
+test-results/
+
+# Variables privadas
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Datos y archivos de ejecución
+*.log
+uploads/
+data/
+backups/
+
+# Configuración local
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
