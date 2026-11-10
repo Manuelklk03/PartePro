@@ -13,7 +13,8 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | --- | --- |
 | Documentación inicial | Preparada |
 | Validación con técnicos | Pendiente |
-| Repositorio PartePro en GitHub | No creado ni comprobado en esta entrega |
+| Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
+| Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
 | Frontend y backend | No inicializados |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
@@ -21,25 +22,26 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Demo y hosting | No configurados |
 | Plugins de desarrollo | No seleccionados |
 
-Este documento describe el contenido del paquete inicial, sin asumir que se ha subido a GitHub.
-
 ## Tarea activa
 
-**F0: incorporar los documentos al repositorio.**
-Después: **F1.1, comprobar el entorno y fijar versiones compatibles.**
+**F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier en frontend/.**
+Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía paso a paso; la IA instala herramientas y dependencias.
 
 ## Próximo resultado esperado
 
-Registrar en docs/herramientas.md las versiones reales de Git, Node, npm, Java, Maven Wrapper y Docker, y las decisiones tomadas.
-Inicializar la base técnica en una rama.
+Scaffold de frontend/ con create-vue, lockfile versionado y `npm run lint`, `npm run type-check` y `npm run build` correctos.
 
 ## Registro de sesión
 
-- Rama: no aplica; documentación generada fuera del futuro repositorio.
-- Commit: no aplica.
-- Producto ejecutado: no.
-- Bloqueos conocidos: ninguno para crear el repositorio y preparar el entorno.
-- Pendientes externos: validación del proceso de trabajo; elección posterior de hosting y licencia.
+Fecha: 2026-11-10
+Rama y commit: feat/base-tecnica, partiendo de bc60728.
+Objetivo: F1.1, comprobar el entorno y fijar versiones.
+Cambios verificados: instalado Temurin 25.0.5 LTS con winget (JAVA_HOME configurado); Docker Desktop arrancado y `docker run hello-world` correcto; extensiones de VS Code para Vue, Java y Spring Boot instaladas; versiones registradas en docs/herramientas.md y ADR-009.
+Comprobaciones y resultados: `git --version`, `node --version`, `npm --version`, `java -version`, `docker --version`, `docker compose version` y `gh auth status` correctos.
+Limitaciones o bloqueos: ninguno. Hay que abrir Docker Desktop antes de usar `docker`. Las terminales abiertas antes de instalar Java deben reiniciarse para ver `java`.
+Cambios sin commit: .gitignore (añade .omc/), docs/herramientas.md, docs/STATUS.md, docs/roadmap.md, docs/decisiones/README.md, CHANGELOG.md.
+Siguiente tarea: commit y PR de F1.1; después F1.2.
+Pendientes externos: validación con técnicos; elección posterior de hosting y licencia.
 
 ## Plantilla para siguientes sesiones
 

@@ -5,7 +5,7 @@ Las casillas describen trabajo pendiente. Completar una exige evidencia.
 ## F0. Preparación
 
 - [x] Documentación inicial.
-- [ ] Repositorio y primer commit.
+- [x] Repositorio y primer commit (bc60728 en origin/main).
 - [ ] Revisar el recorrido con al menos una persona que haga trabajo a domicilio.
 - [ ] Registrar hipótesis y respuestas sin convertirlas en hechos no comprobados.
 
@@ -13,7 +13,7 @@ La entrevista puede avanzar en paralelo al entorno técnico.
 
 ## F1. Base técnica
 
-- [ ] F1.1: comprobar herramientas y fijar versiones compatibles.
+- [x] F1.1: comprobar herramientas y fijar versiones compatibles (docs/herramientas.md).
 - [ ] F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier.
 - [ ] F1.3: inicializar Spring Boot, Maven Wrapper, validación y endpoint de salud.
 - [ ] F1.4: PostgreSQL, Flyway y configuración por entorno.
