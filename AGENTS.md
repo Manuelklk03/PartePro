@@ -40,7 +40,8 @@ Inspeccionar el repositorio y Git antes de proponer cambios. El código y las co
 
 ## Git y calidad
 
-Seguir docs/git-workflow.md: ramas, commits pequeños en español, una PR por tarea y merge commit.
+Seguir docs/git-workflow.md: ramas, commits pequeños en español y PR que pueden agrupar varias tareas relacionadas.
+Manuel hace todo Git y GitHub desde la terminal (git y gh). El merge es un merge commit con un mensaje que resume la PR y sus commits.
 La creación inicial de main está descrita en 00-EMPEZAR.md.
 Usar add selectivo, revisar diff y ejecutar comprobaciones adecuadas al cambio.
 No mezclar correcciones ajenas ni ocultar fallos de CI. No guardar secretos.
