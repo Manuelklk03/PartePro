@@ -7,6 +7,7 @@ Una rama por bloque de trabajo y una PR hacia main. Excepción: el commit inicia
 - Todo Git y GitHub se hace desde la terminal (git y gh), incluidos la PR y el merge. No usar la web salvo para consultar.
 - PR grandes cuando se pueda: agrupar varias tareas relacionadas de la misma fase en una rama, con un commit por tarea o cambio comprensible.
 - El merge se hace con merge commit y un mensaje propio que explique qué incorpora: la PR y sus commits.
+- Prohibidas las líneas `Co-Authored-By` de agentes de IA (Claude, Codex u otros) y cualquier firma automática como "Generated with" en commits, merges y PR.
 
 ## Secuencia habitual
 
@@ -25,21 +26,21 @@ Una rama por bloque de trabajo y una PR hacia main. Excepción: el commit inicia
 
 ## Merge con mensaje
 
+Formato:
+- Asunto: `Merge #NUMERO: resumen en español de lo que incorpora`, sin prefijo de tipo.
+- Cuerpo: una viñeta por cambio relevante de la PR, en frase completa con punto final. Describe lo que aporta, no copia literal de los commits. La documentación actualizada (STATUS, CHANGELOG) va en su propia viñeta.
+
 ```powershell
 gh pr merge NUMERO --merge --delete-branch `
   --subject "Merge #NUMERO: resumen de lo que incorpora" `
-  --body "PR #NUMERO (rama NOMBRE-RAMA): objetivo de la PR.
-
-Commits:
-- tipo: mensaje del commit 1
-- tipo: mensaje del commit 2
-
-Validación: comprobaciones ejecutadas y resultado."
+  --body "- Primer cambio que aporta la PR.
+- Segundo cambio que aporta la PR.
+- Documentación de STATUS y CHANGELOG."
 git switch main
 git pull --ff-only
 ```
 
-Obtener la lista de commits con `git log --oneline main..NOMBRE-RAMA` antes del merge.
+Repasar los commits con `git log --oneline main..NOMBRE-RAMA` antes de redactar el cuerpo.
 
 No forzar un pull ni reescribir historial para resolver una divergencia sin revisar la causa.
 Separar commits por cambios comprensibles, sin un número mínimo artificial.
