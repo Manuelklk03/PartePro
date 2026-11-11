@@ -13,7 +13,7 @@ Estado: comprobado el 2026-11-10 en Windows 11 (F1.1).
 | Maven Wrapper | Pendiente (F1.3) | Se generará con el proyecto; Spring Boot 4.1.2 exige Maven 3.6.3+ |
 | Docker y Compose | Docker 29.9.2, Compose v5.6.1 | docker --version / docker compose version; `docker run hello-world` correcto |
 | Spring Boot | 4.1.2 (estable) | docs.spring.io/spring-boot/system-requirements.html: Java 17 a 27, Spring Framework 7.0.10+ |
-| Vue y herramientas | Pendiente (F1.2) | create-vue 3.24.0 y Vite 8.3.7 disponibles; se fijarán con package.json y lockfile |
+| Vue y herramientas | Instalado (F1.2, 2026-11-11) | create-vue 3.24.0; Vue 3.5.45, Vue Router 5.5.0, Pinia 4.1.0, Vite 8.3.8, TypeScript 6.0.3, vue-tsc 3.3.14, ESLint 10.14.0, Oxlint 1.82.0, Prettier 3.9.6 (frontend/package-lock.json). Engines del proyecto: Node `^22.18.0 \|\| >=24.12.0`, compatible con Node 24.21.0 |
 
 Motivo de Java 25: es la LTS más reciente y está dentro del rango de Spring Boot 4.1.2. Java 26 y 27 no son LTS.
 Docker Desktop debe estar abierto para usar `docker`; no arranca solo con el sistema salvo que se configure.

@@ -1,6 +1,6 @@
 # Estado actual de PartePro
 
-Actualizado: **2026-11-10**.
+Actualizado: **2026-11-11**.
 
 ## Decisión del usuario
 
@@ -15,7 +15,8 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Validación con técnicos | Pendiente |
 | Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
 | Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
-| Frontend y backend | No inicializados |
+| Frontend | Scaffold create-vue generado (F1.2); lint, type-check y build correctos; limpieza de demo y primera vista pendientes |
+| Backend | No inicializado |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
 | Docker, CI, SonarQube y CD | Planificados |
@@ -29,7 +30,7 @@ Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía pas
 
 ## Próximo resultado esperado
 
-Scaffold de frontend/ con create-vue, lockfile versionado y `npm run lint`, `npm run type-check` y `npm run build` correctos.
+Parte guiada de F1.2: Manuel limpia el contenido de demo de create-vue (HelloWorld, TheWelcome, iconos, contador de ejemplo) y escribe una primera vista y un store propios. Después `npm run lint`, `npm run type-check` y `npm run build` deben seguir correctos.
 
 ## Registro de sesión
 
@@ -43,6 +44,15 @@ Commits: F1.1 y normas de Git de Manuel (terminal, formato de merge, sin coautor
 Cambios sin commit: ninguno.
 Siguiente tarea: F1.2 en una rama nueva desde main.
 Pendientes externos: validación con técnicos; elección posterior de hosting y licencia.
+
+Fecha: 2026-11-11
+Rama y commit: feat/frontend-base, partiendo de 3d33392 (PR abierta con varios commits).
+Objetivo: F1.2, parte automática (scaffold y herramientas).
+Cambios verificados: skills y reparto con Codex en docs/herramientas.md; `npm create vue@latest frontend -- --ts --router --pinia --eslint --prettier`; `npm install`; package-lock.json versionado.
+Comprobaciones y resultados: `npm run lint`, `npm run type-check` y `npm run build` correctos. `npm audit`: 1 aviso moderado (minimatch, dependencia transitiva de ESLint 10, solo desarrollo); el arreglo propuesto baja ESLint a 9, cambio mayor, no aplicado.
+Limitaciones o bloqueos: ninguno. Sin Vitest todavía (F1.6). Contenido de demo de create-vue sin limpiar.
+Cambios sin commit: ninguno tras el commit de documentación.
+Siguiente tarea: parte guiada de F1.2 (limpiar demo, primera vista y store, con Manuel escribiendo el código).
 
 ## Plantilla para siguientes sesiones
 
