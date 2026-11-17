@@ -15,7 +15,7 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Validación con técnicos | Pendiente |
 | Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
 | Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
-| Frontend | Scaffold create-vue generado (F1.2); lint, type-check y build correctos; limpieza de demo y primera vista pendientes |
+| Frontend | Scaffold create-vue generado (F1.2) y demo retirada. **No compila hasta escribir router, App.vue y HomeView**, que aún importan archivos borrados |
 | Backend | No inicializado |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
@@ -30,7 +30,7 @@ Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía pas
 
 ## Próximo resultado esperado
 
-Parte guiada de F1.2: Manuel limpia el contenido de demo de create-vue (HelloWorld, TheWelcome, iconos, contador de ejemplo) y escribe una primera vista y un store propios. Después `npm run lint`, `npm run type-check` y `npm run build` deben seguir correctos.
+Parte guiada de F1.2, en una rama nueva desde main: Manuel escribe el router con una sola ruta, App.vue (cabecera y RouterView), HomeView.vue y los estilos globales. Después `npm run lint`, `npm run type-check` y `npm run build` deben volver a pasar. No se crea ningún store hasta F2.
 
 ## Registro de sesión
 

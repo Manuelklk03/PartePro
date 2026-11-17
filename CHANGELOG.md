@@ -15,5 +15,6 @@
 
 - F1.2 (parte automática): proyecto frontend con Vue 3, TypeScript, Vue Router, Pinia, ESLint, Oxlint y Prettier generado con create-vue; lockfile versionado.
 - Registro de skills de Claude y reparto de trabajo con Codex en docs/herramientas.md.
+- Retirado el contenido de demo de create-vue. El frontend no compila hasta escribir el marco propio de la app.
 
 Solo hay el esqueleto del frontend; no hay funcionalidad de producto ni pruebas de aplicación.
