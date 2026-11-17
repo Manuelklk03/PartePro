@@ -38,29 +38,64 @@ Registrar por cada herramienta: nombre real, propósito, disponibilidad comproba
 No afirmar que hay plugins instalados o activos si no se ha verificado.
 Las instrucciones compartidas viven en AGENTS.md; CLAUDE.md apunta a él.
 
-### Skills de Claude seleccionadas (propuesta del 2026-11-11)
+### Plugins del proyecto (decisión del 2026-11-17)
 
-Disponibilidad comprobada: aparecen en la lista de skills de Claude Code de esta máquina. Codex CLI 0.164.0 está instalado y lee AGENTS.md. "Activar" significa usarla cuando encaje; no se instala nada.
+`.claude/settings.json` desactiva en este repositorio los plugins que no encajan con PartePro o que solo hacen falta en una fase. La configuración global de Manuel no cambia. Los cambios se aplican al reiniciar Claude Code.
 
-| Skill | Cuándo | Para qué |
+- **Activo:** disponible desde ya.
+- **En espera:** desactivado hasta su fase. Al llegar, Claude pone su línea a `true` (o la borra) en `.claude/settings.json` y lo anota aquí.
+- **Descartado:** no encaja con el alcance. Se reevalúa solo si el alcance cambia.
+
+Con esto quedan 17 plugins activos de 119. Claude carga mucho menos contexto en cada sesión.
+
+#### Activos ahora
+
+| Plugin | Para qué en PartePro |
+| --- | --- |
+| superpowers | brainstorming y writing-plans antes de tareas grandes; verification-before-completion antes de dar algo por hecho; systematic-debugging ante fallos; TDD desde F1.6 |
+| frontend-stack | Router que decide qué skill de diseño lidera cada fase de UI |
+| antislop | Evitar el aspecto genérico de IA en pantallas y textos |
+| code-documentation | `code-explain`: explicar código paso a paso mientras Manuel aprende |
+| documentation-generation | ADR, changelog y especificación OpenAPI |
+| javascript-typescript | TypeScript avanzado y pruebas de JavaScript |
+| chrome-devtools-mcp | Lighthouse y accesibilidad con la primera pantalla |
+| Personales: ponytail, caveman, claude-mem, mempalace, headroom, oh-my-claudecode, codex, claude-code-setup, grill-me, andrej-karpathy-skills | Estilo, memoria y herramientas de Manuel; no forman parte del repositorio |
+
+Fuera de los plugins, `playwright-cli` (skill suelta) se usa en F1.6 y F2 para el E2E.
+
+#### En espera, por fase
+
+| Fase | Plugins | Para qué |
 | --- | --- | --- |
-| superpowers:brainstorming, writing-plans | Ahora | Diseñar y planificar antes de tareas grandes (F2 en adelante) |
-| superpowers:verification-before-completion | Ahora | No dar una tarea por hecha sin ejecutar lint, tipos y build |
-| superpowers:systematic-debugging | Ahora | Errores de instalación, CI o arranque |
-| superpowers:test-driven-development | F1.6 y F2 | Pruebas antes del código en reglas de dominio |
-| frontend-stack:frontend-stack (router) | Primera pantalla (F2) | Decide qué skill de diseño lidera; evita mezclar estilos |
-| impeccable (shape, audit, polish) | F2 en adelante | Planificar UX y auditar accesibilidad y estados vacío/carga/error |
-| antislop:antislop, antislop-ui, antislop-forms | F2 en adelante | Evitar aspecto genérico de IA; formularios de aviso y parte |
-| web-design-guidelines | Al revisar pantallas | Revisión de accesibilidad y UX |
-| chrome-devtools-mcp (a11y-debugging, lighthouse) | Con la primera pantalla | Auditar rendimiento y accesibilidad móvil |
-| playwright-cli / plugin playwright | F1.6 y F2 | Pruebas E2E del recorrido aviso a parte |
-| vercel-react-best-practices, nextjs, ai-sdk y resto de vercel:* | No | PartePro usa Vue y Spring Boot; solo Vercel CLI si se elige ese hosting |
-| supabase:* | No | La base es PostgreSQL propio con Flyway (ADR del stack) |
-| security-audit (global) | F5 (antes de demo pública) | Revisión de sesión, CSRF y roles; no se lanza una auditoría completa por defecto |
-| gsap-*, threejs, scroll-world, cinematic-scroll, canvas-design | No | Sin necesidad en el alcance; GSAP, Lenis y animaciones solo si una pantalla lo pide |
-| emil-design-eng (animate, review-animations) | Más adelante | Solo al pulir transiciones, tras accesibilidad |
-| claude-seo:*, ai-seo | No | Es una herramienta interna con login, no una web pública |
-| claude-mem, mempalace, oh-my-claudecode, caveman, ponytail | Ya instalados | Memoria y estilo de respuesta personales; no forman parte del repositorio |
+| F1.3 | backend-development, jvm-languages | Diseño de API y arquitectura; `java-pro` orienta a Spring Boot 3.x, así que se contrasta con la documentación oficial de 4.1.2 |
+| F1.4 | database-design, database-migrations | Diseño de tablas en PostgreSQL y migraciones SQL |
+| F1.6 | cicd-automation, unit-testing, tdd-workflows, dependency-management | GitHub Actions y secretos, pruebas, TDD y auditoría de dependencias |
+| F2 (inicio) | impeccable, frontend-design, ui-ux-pro-max, taste, ui-design, accessibility-compliance | Identidad visual, paleta, componentes y accesibilidad de las primeras pantallas; el router de frontend-stack decide quién lidera |
+| F2 (inicio) | backend-api-security, frontend-mobile-security, security-scanning, developer-essentials | Sesión, CSRF, roles, XSS y patrones de autenticación y E2E |
+| F2 (inicio) | api-testing-observability, comprehensive-review | Contrato OpenAPI y revisión antes de cada merge |
+| F2 (pulido) | emil-design-eng | Transiciones, solo después de la accesibilidad |
+| F6 | observability-monitoring, application-performance, performance-testing-review | Logs, salud, rendimiento y límites de la demo |
+| F6 | deployment-strategies, deployment-validation, incident-response | CD, rollback y verificación del despliegue |
+| F6 | security-compliance, hr-legal-compliance | Revisión de seguridad antes de la demo y política de datos (RGPD) |
+| F6 | c4-architecture, avoid-ai-writing | Diagramas de arquitectura y redacción del README final |
+
+#### Descartados
+
+| Grupo | Plugins | Motivo |
+| --- | --- | --- |
+| Alojamiento y datos ajenos al stack | supabase, vercel | La base es PostgreSQL propio con Flyway; el hosting se decide en F6 |
+| SEO y marketing | claude-seo, seo-content-creation, seo-technical-optimization, seo-analysis-monitoring, content-marketing, customer-sales-automation, social-publishing, hermes-tweet, brand-landingpage | Es una herramienta interna con login, no una web pública |
+| Animación, vídeo e imagen | scroll-world, lemo-opuscar, baoyu-skills, imagegen-skills, meigen-ai-design, pptx-deck-creation, cli-anything, file-conversion | Fuera del alcance del producto |
+| Negocio | business-analytics, startup-business-analyst | No se evalúa el negocio en este repositorio |
+| Otros lenguajes | python-development, systems-programming, web-scripting, functional-programming, julia-development, arm-cortex-microcontrollers, dotnet-contribution, shell-scripting | El stack es Java y TypeScript; el entorno es PowerShell |
+| IA y datos | llm-application-dev, llm-finetuning, agent-orchestration, context-management, machine-learning-ops, data-engineering, dgx-spark-ops | ADR-008: sin IA dentro del producto |
+| Otros dominios | payment-processing, blockchain-web3, quantitative-trading, game-development, reverse-engineering | Sin cobros ni dominios ajenos al producto |
+| Multiagente que choca con el modo guiado | agent-teams, conductor, ship-mate, full-stack-orchestration, team-collaboration, operating-kit | Manuel escribe el código; un solo agente edita a la vez |
+| React, móvil y API en Python | frontend-mobile-development, multi-platform-apps, api-scaffolding, data-validation-suite | El frontend es Vue y el backend Spring Boot |
+| Infraestructura fuera de alcance | kubernetes-operations, cloud-infrastructure, database-cloud-optimization | Docker Compose es suficiente |
+| Flujo propio de Git y depuración | git-pr-workflows, debugging-toolkit, error-debugging, error-diagnostics, distributed-debugging | Manuel usa su flujo de `docs/git-workflow.md`; superpowers cubre la depuración |
+| Refactorización sin petición | code-refactoring, codebase-cleanup, framework-migration | No se hacen refactorizaciones no solicitadas |
+| Utilidades sin uso previsto | documentation-standards, before-you-build, skill-forge-essentials, superself, plugin-eval, protect-mcp, signed-audit-trails, review-agent-governance, block-no-verify | Sin necesidad en el alcance |
 
 ### Reparto de trabajo con Codex
 

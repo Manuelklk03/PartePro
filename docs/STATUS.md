@@ -21,7 +21,7 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Pruebas de aplicación | No existen |
 | Docker, CI, SonarQube y CD | Planificados |
 | Demo y hosting | No configurados |
-| Plugins de desarrollo | No seleccionados |
+| Plugins de desarrollo | Seleccionados por fase (docs/herramientas.md); `.claude/settings.json` desactiva el resto |
 
 ## Tarea activa
 

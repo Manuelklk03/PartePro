@@ -26,3 +26,6 @@ backups/
 Thumbs.db
 
 .omc/
+.serena/
+receipts/
+review-receipts/
