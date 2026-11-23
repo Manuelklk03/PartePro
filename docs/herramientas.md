@@ -10,12 +10,12 @@ Estado: comprobado el 2026-11-10 en Windows 11 (F1.1).
 | Node | 24.21.0 | node --version; Vite 8.3.7 exige `^20.19.0 \|\| >=22.12.0` (npm view vite engines.node) |
 | npm | 12.1.0 | npm --version |
 | Java | Temurin 25.0.5+8 LTS | java -version; instalado con `winget install EclipseAdoptium.Temurin.25.JDK`; JAVA_HOME configurado |
-| Maven Wrapper | Pendiente (F1.3) | Se generará con el proyecto; Spring Boot 4.1.2 exige Maven 3.6.3+ |
+| Maven Wrapper | 3.3.4, descarga Maven 3.10.1 | backend/.mvn/wrapper/maven-wrapper.properties; `mvnw verify` correcto; Spring Boot 4.1.3 exige Maven 3.6.3+ |
 | Docker y Compose | Docker 29.9.2, Compose v5.6.1 | docker --version / docker compose version; `docker run hello-world` correcto |
-| Spring Boot | 4.1.2 (estable) | docs.spring.io/spring-boot/system-requirements.html: Java 17 a 27, Spring Framework 7.0.10+ |
+| Spring Boot | 4.1.3 (estable) | Spring Initializr (2026-11-23) ya no ofrece la 4.1.2: se usa el parche 4.1.3 de la misma línea; existe la 4.2.0 y no se adopta. Requisitos: Java 17 a 27, Spring Framework 7.0.10+ (docs.spring.io/spring-boot/system-requirements.html) |
 | Vue y herramientas | Instalado (F1.2, 2026-11-11) | create-vue 3.24.0; Vue 3.5.45, Vue Router 5.5.0, Pinia 4.1.0, Vite 8.3.8, TypeScript 6.0.3, vue-tsc 3.3.14, ESLint 10.14.0, Oxlint 1.82.0, Prettier 3.9.6 (frontend/package-lock.json). Engines del proyecto: Node `^22.18.0 \|\| >=24.12.0`, compatible con Node 24.21.0 |
 
-Motivo de Java 25: es la LTS más reciente y está dentro del rango de Spring Boot 4.1.2. Java 26 y 27 no son LTS.
+Motivo de Java 25: es la LTS más reciente y está dentro del rango de Spring Boot 4.1.3. Java 26 y 27 no son LTS.
 Docker Desktop debe estar abierto para usar `docker`; no arranca solo con el sistema salvo que se configure.
 
 ## Extensiones de VS Code comprobadas
@@ -58,6 +58,7 @@ Con esto quedan 17 plugins activos de 119. Claude carga mucho menos contexto en 
 | code-documentation | `code-explain`: explicar código paso a paso mientras Manuel aprende |
 | documentation-generation | ADR, changelog y especificación OpenAPI |
 | javascript-typescript | TypeScript avanzado y pruebas de JavaScript |
+| backend-development, jvm-languages | Diseño de API y arquitectura de Spring Boot (activados en F1.3, 2026-11-23). `java-pro` orienta a Spring Boot 3.x, así que se contrasta con la documentación oficial de 4.1 |
 | chrome-devtools-mcp | Lighthouse y accesibilidad con la primera pantalla |
 | Personales: ponytail, caveman, claude-mem, mempalace, headroom, oh-my-claudecode, codex, claude-code-setup, grill-me, andrej-karpathy-skills | Estilo, memoria y herramientas de Manuel; no forman parte del repositorio |
 
@@ -67,7 +68,6 @@ Fuera de los plugins, `playwright-cli` (skill suelta) se usa en F1.6 y F2 para e
 
 | Fase | Plugins | Para qué |
 | --- | --- | --- |
-| F1.3 | backend-development, jvm-languages | Diseño de API y arquitectura; `java-pro` orienta a Spring Boot 3.x, así que se contrasta con la documentación oficial de 4.1.2 |
 | F1.4 | database-design, database-migrations | Diseño de tablas en PostgreSQL y migraciones SQL |
 | F1.6 | cicd-automation, unit-testing, tdd-workflows, dependency-management | GitHub Actions y secretos, pruebas, TDD y auditoría de dependencias |
 | F2 (inicio) | impeccable, frontend-design, ui-ux-pro-max, taste, ui-design, accessibility-compliance | Identidad visual, paleta, componentes y accesibilidad de las primeras pantallas; el router de frontend-stack decide quién lidera |

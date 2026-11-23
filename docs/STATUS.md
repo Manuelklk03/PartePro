@@ -16,7 +16,7 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
 | Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
 | Frontend | F1.2 terminada: marco de la app (router, cabecera, vista de inicio provisional y estilos base) sobre create-vue. `oxlint`, `eslint`, `vue-tsc`, `vite build` y `prettier --check` correctos. Sin pruebas todavía (F1.6) |
-| Backend | No inicializado |
+| Backend | F1.3 en curso: proyecto Spring Boot 4.1.3 generado con Maven Wrapper (Java 25, Web y Validation); `mvnw verify` correcto. Falta el endpoint de salud (código de Manuel) |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
 | Docker, CI, SonarQube y CD | Planificados |
@@ -30,7 +30,7 @@ Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía pas
 
 ## Próximo resultado esperado
 
-Rama nueva `feat/f1-backend-base` desde main. Claude activa en `.claude/settings.json` los plugins backend-development y jvm-languages y genera `backend/` con Spring Initializr (Java 25, Spring Boot 4.1.2, Maven Wrapper, Web y Validation). Decisión pendiente: paquete Java; propuesta `es.manuelcasinos.partepro`.
+Rama `feat/f1-backend-base`. Hecho por Claude: plugins backend-development y jvm-languages activados en `.claude/settings.json`; `backend/` generado con Spring Initializr (Java 25, Spring Boot 4.1.3, Maven Wrapper, Web y Validation; paquete `es.manuelcasinos.partepro`).
 Manuel escribe `HealthResponse` (record), `HealthController` (`GET /api/health`, sin datos sensibles) y su prueba con MockMvc. Antes de darle el código, Claude contrasta las anotaciones de prueba de Spring Boot 4 con la documentación actual.
 
 ## Registro de sesión

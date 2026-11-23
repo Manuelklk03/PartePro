@@ -15,7 +15,7 @@ La entrevista puede avanzar en paralelo al entorno técnico.
 
 - [x] F1.1: comprobar herramientas y fijar versiones compatibles (docs/herramientas.md).
 - [x] F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier (frontend/ con marco de la app; build correcto).
-- [ ] F1.3: inicializar Spring Boot, Maven Wrapper, validación y endpoint de salud.
+- [ ] F1.3: inicializar Spring Boot, Maven Wrapper, validación y endpoint de salud (proyecto generado; falta el endpoint).
 - [ ] F1.4: PostgreSQL, Flyway y configuración por entorno.
 - [ ] F1.5: Compose y .env.example reproducibles.
 - [ ] F1.6: tests iniciales útiles, pipeline de lint/tipos/build/pruebas y análisis Sonar.
