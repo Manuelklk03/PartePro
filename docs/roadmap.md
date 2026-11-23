@@ -14,7 +14,7 @@ La entrevista puede avanzar en paralelo al entorno técnico.
 ## F1. Base técnica
 
 - [x] F1.1: comprobar herramientas y fijar versiones compatibles (docs/herramientas.md).
-- [ ] F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier.
+- [x] F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier (frontend/ con marco de la app; build correcto).
 - [ ] F1.3: inicializar Spring Boot, Maven Wrapper, validación y endpoint de salud.
 - [ ] F1.4: PostgreSQL, Flyway y configuración por entorno.
 - [ ] F1.5: Compose y .env.example reproducibles.

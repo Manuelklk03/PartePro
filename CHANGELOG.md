@@ -15,6 +15,13 @@
 
 - F1.2 (parte automática): proyecto frontend con Vue 3, TypeScript, Vue Router, Pinia, ESLint, Oxlint y Prettier generado con create-vue; lockfile versionado.
 - Registro de skills de Claude y reparto de trabajo con Codex en docs/herramientas.md.
-- Retirado el contenido de demo de create-vue. El frontend no compila hasta escribir el marco propio de la app.
+- Retirado el contenido de demo de create-vue.
 
-Solo hay el esqueleto del frontend; no hay funcionalidad de producto ni pruebas de aplicación.
+### 2026-11-23
+
+- F1.2 terminada: marco propio de la app con router de una ruta, cabecera semántica, vista de inicio provisional y estilos base mobile first con foco visible.
+- Página en español con título PartePro.
+- Plugins de Claude seleccionados por fase: `.claude/settings.json` desactiva en este repositorio los que no encajan, y docs/herramientas.md lista activos, en espera y descartados.
+- Normas de Git: commits agrupados por paso y descripción propia en cada PR.
+
+Solo hay el frontend base; no hay funcionalidad de producto, backend ni pruebas de aplicación.

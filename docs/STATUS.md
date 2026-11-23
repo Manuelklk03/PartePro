@@ -15,22 +15,23 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Validación con técnicos | Pendiente |
 | Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
 | Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
-| Frontend | Scaffold create-vue generado (F1.2) y demo retirada. **No compila hasta escribir router, App.vue y HomeView**, que aún importan archivos borrados |
+| Frontend | F1.2 terminada: marco de la app (router, cabecera, vista de inicio provisional y estilos base) sobre create-vue. `oxlint`, `eslint`, `vue-tsc`, `vite build` y `prettier --check` correctos. Sin pruebas todavía (F1.6) |
 | Backend | No inicializado |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
 | Docker, CI, SonarQube y CD | Planificados |
 | Demo y hosting | No configurados |
-| Plugins de desarrollo | No seleccionados |
+| Plugins de desarrollo | Seleccionados por fase (docs/herramientas.md); `.claude/settings.json` desactiva el resto |
 
 ## Tarea activa
 
-**F1.2: inicializar Vue, TypeScript, Router, Pinia, ESLint y Prettier en frontend/.**
-Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía paso a paso; la IA instala herramientas y dependencias.
+**F1.3: backend con Spring Boot, Maven Wrapper, validación y endpoint de salud.**
+Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía paso a paso; la IA hace configuraciones, dependencias, documentación y Git.
 
 ## Próximo resultado esperado
 
-Parte guiada de F1.2, en una rama nueva desde main: Manuel escribe el router con una sola ruta, App.vue (cabecera y RouterView), HomeView.vue y los estilos globales. Después `npm run lint`, `npm run type-check` y `npm run build` deben volver a pasar. No se crea ningún store hasta F2.
+Rama nueva `feat/f1-backend-base` desde main. Claude activa en `.claude/settings.json` los plugins backend-development y jvm-languages y genera `backend/` con Spring Initializr (Java 25, Spring Boot 4.1.2, Maven Wrapper, Web y Validation). Decisión pendiente: paquete Java; propuesta `es.manuelcasinos.partepro`.
+Manuel escribe `HealthResponse` (record), `HealthController` (`GET /api/health`, sin datos sensibles) y su prueba con MockMvc. Antes de darle el código, Claude contrasta las anotaciones de prueba de Spring Boot 4 con la documentación actual.
 
 ## Registro de sesión
 
@@ -53,6 +54,15 @@ Comprobaciones y resultados: `npm run lint`, `npm run type-check` y `npm run bui
 Limitaciones o bloqueos: ninguno. Sin Vitest todavía (F1.6). Contenido de demo de create-vue sin limpiar.
 Cambios sin commit: ninguno tras el commit de documentación.
 Siguiente tarea: parte guiada de F1.2 (limpiar demo, primera vista y store, con Manuel escribiendo el código).
+
+Fecha: 2026-11-23
+Rama y commit: feat/f1-marco-app (PR #4), partiendo de def1412.
+Objetivo: cerrar F1.2 con el marco propio de la app y seleccionar los plugins por fase.
+Cambios verificados: router, App.vue, HomeView.vue y main.css escritos por Manuel; index.html con lang es y título PartePro; .claude/settings.json con 102 plugins desactivados en este repositorio.
+Comprobaciones y resultados: `oxlint`, `eslint`, `vue-tsc --build`, `vite build` y `prettier --check src/` correctos. Primer intento de build fallido por `var(--color border)` en App.vue (falta un guion); corregido. Ni el lint ni los tipos detectan CSS inválido; solo lo detecta el build.
+Limitaciones o bloqueos: ninguno. No se ha comprobado visualmente en el navegador con `npm run dev` en esta sesión.
+Cambios sin commit: ninguno.
+Siguiente tarea: F1.3 (ver "Próximo resultado esperado").
 
 ## Plantilla para siguientes sesiones
 
