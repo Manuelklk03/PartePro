@@ -13,12 +13,13 @@
 | ADR-007 | Presupuestos con revisiones inmutables | Relacionar cada respuesta con el contenido exacto enviado |
 | ADR-008 | Sin herramientas de IA dentro del producto por defecto | Las funciones iniciales no lo requieren |
 | ADR-009 | Java 25 LTS (Temurin), Spring Boot 4.1.3 y Node 24 (2026-11-10, aceptada; Spring Boot ajustado de 4.1.2 a 4.1.3 el 2026-11-23 porque Initializr dejó de ofrecer la 4.1.2) | Versiones LTS/estables y compatibles según la documentación oficial; detalle en docs/herramientas.md |
+| ADR-010 | PostgreSQL 18 (imagen 18.7-alpine) y configuración del backend por variables de entorno (2026-11-24, aceptada) | La 18 es la mayor estable anterior a la 19.0 recién publicada. Las variables de entorno evitan secretos en el repositorio y sirven igual en Compose, Docker y CI; en local se carga `.env` |
 
 Las decisiones ADR-001 a ADR-008 son del diseño inicial, no implementaciones verificadas.
 
 ## Pendientes
 
-Versiones de dependencias de frontend y PostgreSQL; publicación; almacenamiento de adjuntos; caducidad de enlaces;
+Versiones de dependencias de frontend; publicación; almacenamiento de adjuntos; caducidad de enlaces;
 retención offline; estrategia de sesión en varios procesos; librería de PDF;
 formato Java; licencia.
 

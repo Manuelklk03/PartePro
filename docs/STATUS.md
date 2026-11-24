@@ -30,9 +30,11 @@ Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía pas
 
 ## Próximo resultado esperado
 
-F1.4 en la misma rama `feat/f1-backend-base`, con una sola PR para F1.3 y F1.4.
-Claude: activa los plugins database-design y database-migrations; `compose.yaml` solo con PostgreSQL; `.env.example`; dependencias de JPA, Flyway, el driver de PostgreSQL y Testcontainers; `application` con perfiles dev y test leyendo variables de entorno.
-Manuel: `V1__crear_tabla_usuario.sql` a partir de docs/dominio.md y una prueba de integración con PostgreSQL real que compruebe que Flyway aplica la migración.
+F1.4 en la rama `feat/f1-backend-base`, con una sola PR para F1.3 y F1.4.
+Hecho por Claude: plugins database-design y database-migrations activados; `compose.yaml` con PostgreSQL 18.7; `.env.example`; dependencias de JPA, Flyway, el driver y Testcontainers; `application.properties` por variables de entorno (carga `../.env` si existe). Verificado: `mvnw verify` correcto y la API arranca contra PostgreSQL con `/api/health` en HTTP 200; Flyway no encuentra migraciones, como se espera.
+Falta, de Manuel: `V1__crear_tabla_usuario.sql` a partir de docs/dominio.md y `MigracionesTest`, una prueba de integración con PostgreSQL real que compruebe que Flyway aplica la migración.
+
+Para trabajar en otro equipo: copiar `.env.example` a `.env` y cambiar las dos claves (la misma en `POSTGRES_PASSWORD` y `DB_PASSWORD`); `docker compose up -d --wait` en la raíz; `.mvnw.cmd spring-boot:run` en `backend/`. Si se cambia la clave después de crear el volumen, hay que borrarlo con `docker compose down -v`, lo que elimina los datos locales.
 
 ## Registro de sesión
 

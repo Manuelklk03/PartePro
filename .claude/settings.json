@@ -30,8 +30,6 @@
     "data-engineering@claude-code-workflows": false,
     "data-validation-suite@claude-code-workflows": false,
     "database-cloud-optimization@claude-code-workflows": false,
-    "database-design@claude-code-workflows": false,
-    "database-migrations@claude-code-workflows": false,
     "debugging-toolkit@claude-code-workflows": false,
     "dependency-management@claude-code-workflows": false,
     "deployment-strategies@claude-code-workflows": false,

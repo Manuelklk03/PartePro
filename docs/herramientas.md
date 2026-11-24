@@ -12,6 +12,8 @@ Estado: comprobado el 2026-11-10 en Windows 11 (F1.1).
 | Java | Temurin 25.0.5+8 LTS | java -version; instalado con `winget install EclipseAdoptium.Temurin.25.JDK`; JAVA_HOME configurado |
 | Maven Wrapper | 3.3.4, descarga Maven 3.10.1 | backend/.mvn/wrapper/maven-wrapper.properties; `mvnw verify` correcto; Spring Boot 4.1.3 exige Maven 3.6.3+ |
 | Docker y Compose | Docker 29.9.2, Compose v5.6.1 | docker --version / docker compose version; `docker run hello-world` correcto |
+| PostgreSQL | 18.7 (imagen `postgres:18.7-alpine`) | Docker Hub (2026-11-24): la 19.0 acaba de publicarse, se elige la 18, mayor estable anterior. `docker compose up -d --wait` correcto; Flyway confirma PostgreSQL 18.7 |
+| Persistencia y pruebas | Hibernate 7.4.15, Flyway 12.4.0, driver PostgreSQL 42.7.14, Testcontainers 2.0.5 | `mvnw dependency:tree`; versiones del BOM de Spring Boot 4.1.3 |
 | Spring Boot | 4.1.3 (estable) | Spring Initializr (2026-11-23) ya no ofrece la 4.1.2: se usa el parche 4.1.3 de la misma línea; existe la 4.2.0 y no se adopta. Requisitos: Java 17 a 27, Spring Framework 7.0.10+ (docs.spring.io/spring-boot/system-requirements.html) |
 | Vue y herramientas | Instalado (F1.2, 2026-11-11) | create-vue 3.24.0; Vue 3.5.45, Vue Router 5.5.0, Pinia 4.1.0, Vite 8.3.8, TypeScript 6.0.3, vue-tsc 3.3.14, ESLint 10.14.0, Oxlint 1.82.0, Prettier 3.9.6 (frontend/package-lock.json). Engines del proyecto: Node `^22.18.0 \|\| >=24.12.0`, compatible con Node 24.21.0 |
 
@@ -59,6 +61,7 @@ Con esto quedan 17 plugins activos de 119. Claude carga mucho menos contexto en 
 | documentation-generation | ADR, changelog y especificación OpenAPI |
 | javascript-typescript | TypeScript avanzado y pruebas de JavaScript |
 | backend-development, jvm-languages | Diseño de API y arquitectura de Spring Boot (activados en F1.3, 2026-11-23). `java-pro` orienta a Spring Boot 3.x, así que se contrasta con la documentación oficial de 4.1 |
+| database-design, database-migrations | Diseño de tablas en PostgreSQL y migraciones SQL (activados en F1.4, 2026-11-24) |
 | chrome-devtools-mcp | Lighthouse y accesibilidad con la primera pantalla |
 | Personales: ponytail, caveman, claude-mem, mempalace, headroom, oh-my-claudecode, codex, claude-code-setup, grill-me, andrej-karpathy-skills | Estilo, memoria y herramientas de Manuel; no forman parte del repositorio |
 
@@ -68,7 +71,6 @@ Fuera de los plugins, `playwright-cli` (skill suelta) se usa en F1.6 y F2 para e
 
 | Fase | Plugins | Para qué |
 | --- | --- | --- |
-| F1.4 | database-design, database-migrations | Diseño de tablas en PostgreSQL y migraciones SQL |
 | F1.6 | cicd-automation, unit-testing, tdd-workflows, dependency-management | GitHub Actions y secretos, pruebas, TDD y auditoría de dependencias |
 | F2 (inicio) | impeccable, frontend-design, ui-ux-pro-max, taste, ui-design, accessibility-compliance | Identidad visual, paleta, componentes y accesibilidad de las primeras pantallas; el router de frontend-stack decide quién lidera |
 | F2 (inicio) | backend-api-security, frontend-mobile-security, security-scanning, developer-essentials | Sesión, CSRF, roles, XSS y patrones de autenticación y E2E |
