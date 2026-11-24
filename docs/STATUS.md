@@ -16,7 +16,7 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 | Repositorio PartePro en GitHub | Creado; main sincronizada con origin (bc60728) |
 | Entorno de desarrollo (F1.1) | Comprobado; versiones en docs/herramientas.md |
 | Frontend | F1.2 terminada: marco de la app (router, cabecera, vista de inicio provisional y estilos base) sobre create-vue. `oxlint`, `eslint`, `vue-tsc`, `vite build` y `prettier --check` correctos. Sin pruebas todavía (F1.6) |
-| Backend | F1.3 en curso: proyecto Spring Boot 4.1.3 generado con Maven Wrapper (Java 25, Web y Validation); `mvnw verify` correcto. Falta el endpoint de salud (código de Manuel) |
+| Backend | F1.3 terminada: Spring Boot 4.1.3 con Maven Wrapper (Java 25, Web y Validation) y `GET /api/health`. `mvnw verify` correcto con 1 prueba; comprobado con el `.jar` real (HTTP 200 y `{"status":"UP"}`). Sin base de datos todavía |
 | Base de datos y migraciones | No implementadas |
 | Pruebas de aplicación | No existen |
 | Docker, CI, SonarQube y CD | Planificados |
@@ -25,13 +25,14 @@ Se comienza con PartePro. Los otros dos quedan como proyectos posteriores y sepa
 
 ## Tarea activa
 
-**F1.3: backend con Spring Boot, Maven Wrapper, validación y endpoint de salud.**
+**F1.4: PostgreSQL, Flyway y configuración por entorno.**
 Modo de trabajo acordado: guiado. Manuel escribe el código y la IA le guía paso a paso; la IA hace configuraciones, dependencias, documentación y Git.
 
 ## Próximo resultado esperado
 
-Rama `feat/f1-backend-base`. Hecho por Claude: plugins backend-development y jvm-languages activados en `.claude/settings.json`; `backend/` generado con Spring Initializr (Java 25, Spring Boot 4.1.3, Maven Wrapper, Web y Validation; paquete `es.manuelcasinos.partepro`).
-Manuel escribe `HealthResponse` (record), `HealthController` (`GET /api/health`, sin datos sensibles) y su prueba con MockMvc. Antes de darle el código, Claude contrasta las anotaciones de prueba de Spring Boot 4 con la documentación actual.
+F1.4 en la misma rama `feat/f1-backend-base`, con una sola PR para F1.3 y F1.4.
+Claude: activa los plugins database-design y database-migrations; `compose.yaml` solo con PostgreSQL; `.env.example`; dependencias de JPA, Flyway, el driver de PostgreSQL y Testcontainers; `application` con perfiles dev y test leyendo variables de entorno.
+Manuel: `V1__crear_tabla_usuario.sql` a partir de docs/dominio.md y una prueba de integración con PostgreSQL real que compruebe que Flyway aplica la migración.
 
 ## Registro de sesión
 
@@ -63,6 +64,15 @@ Comprobaciones y resultados: `oxlint`, `eslint`, `vue-tsc --build`, `vite build`
 Limitaciones o bloqueos: ninguno. No se ha comprobado visualmente en el navegador con `npm run dev` en esta sesión.
 Cambios sin commit: ninguno.
 Siguiente tarea: F1.3 (ver "Próximo resultado esperado").
+
+Fecha: 2026-11-24
+Rama y commit: feat/f1-backend-base (sin PR todavía), partiendo de d2914d3.
+Objetivo: F1.3, backend con Spring Boot y endpoint de salud.
+Cambios verificados: proyecto generado con Spring Initializr (Java 25, Spring Boot 4.1.3, Maven Wrapper 3.3.4 con Maven 3.10.1, Web y Validation); HealthResponse, HealthController y HealthControllerTest escritos por Manuel.
+Comprobaciones y resultados: `mvnw verify` con exit 0 y 1 prueba correcta; el `.jar` arrancado responde HTTP 200 con `{"status":"UP"}` en `/api/health` y HTTP 404 en una ruta inexistente. En Spring Boot 4, `@WebMvcTest` está en `org.springframework.boot.webmvc.test.autoconfigure`. Primer intento: el test estaba en src/main en lugar de src/test y la clase vacía; corregido.
+Limitaciones o bloqueos: Initializr ya no ofrecía Spring Boot 4.1.2, se usó 4.1.3 (ADR-009 ajustado). Mockito avisa de que se autoadjunta como agente en el JDK; inofensivo hoy, se trata en F1.6.
+Cambios sin commit: ninguno tras el commit de documentación.
+Siguiente tarea: F1.4 (ver "Próximo resultado esperado").
 
 ## Plantilla para siguientes sesiones
 

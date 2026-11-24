@@ -24,4 +24,9 @@
 - Plugins de Claude seleccionados por fase: `.claude/settings.json` desactiva en este repositorio los que no encajan, y docs/herramientas.md lista activos, en espera y descartados.
 - Normas de Git: commits agrupados por paso y descripción propia en cada PR.
 
-Solo hay el frontend base; no hay funcionalidad de producto, backend ni pruebas de aplicación.
+### 2026-11-24
+
+- F1.3 terminada: proyecto backend con Spring Boot 4.1.3, Java 25 y Maven Wrapper, y endpoint `GET /api/health` con su prueba de la capa web.
+- Spring Boot 4.1.3 en lugar de 4.1.2, que Spring Initializr ya no ofrece (ADR-009 ajustado).
+
+Solo hay el frontend base y un endpoint de salud; no hay funcionalidad de producto ni base de datos.
